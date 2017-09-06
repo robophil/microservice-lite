@@ -1,0 +1,34 @@
+{
+    "name": "microservice-lite",
+    "version": "0.0.1",
+    "description": "A lite framework for getting started with microservices",
+    "main": "index.js",
+    "scripts": {
+      "test": "npm test",
+      "commitmsg": "validate-commit-msg"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Robophil/microservice-lite.git"
+    },
+    "keywords": [
+      "microservices",
+      "cote.js",
+      "cote",
+      "javascript",
+      "node",
+      "microservicelite",
+      "ms-lite"
+    ],
+    "author": "Balogun Oghenerobo Philip <oghenerobo@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/Robophil/microservice-lite/issues"
+    },
+    "homepage": "https://github.com/Robophil/microservice-lite#readme",
+    "devDependencies": {
+      "husky": "^0.14.3",
+      "validate-commit-msg": "^2.14.0"
+    }
+  }
+  
