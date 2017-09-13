@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "A lite framework for getting started with microservices",
   "main": "index.js",
+  "bin": {
+    "mslite": "./bin/mslite.js"
+  },
   "scripts": {
     "test": "standard && mocha \"src/**/*.spec.js\" \"index.spec.js\" ",
     "commitmsg": "validate-commit-msg",
@@ -21,6 +24,12 @@
     "microservicelite",
     "ms-lite"
   ],
+  "standard": {
+    "ignore": [
+      "bin/mslite.js"
+    ]
+  },
+  "preferGlobal": true,
   "author": "Balogun Oghenerobo Philip <oghenerobo@gmail.com>",
   "license": "MIT",
   "bugs": {
@@ -32,5 +41,8 @@
     "mocha": "^3.5.2",
     "standard": "^10.0.3",
     "validate-commit-msg": "^2.14.0"
+  },
+  "dependencies": {
+    "commander": "^2.11.0"
   }
 }
