@@ -38,15 +38,11 @@ The goal of the project is to make getting started with a microservice easy and 
 - CLI for generating necessary files. eg
 ```bash
 # creates new project
-ms-lite create sample-project
+mslite new sample-project
 ```
 ```bash
-# creates converter-requester.js
-ms-lite new requester converter
-```
-```bash
-# creates file-converter-responder.js
-ms-lite new responder file-converter
+# generates a db model
+mslite g model name [names...]
 ```
 - Easy connection to any database with the same api
 - .... got a feature in mind ? create an issue [here](https://github.com/Robophil/microservice-lite/issues)
