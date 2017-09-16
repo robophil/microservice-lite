@@ -1,5 +1,6 @@
 const fs = require('fs-extra')
 const path = require('path')
+const replace = require('replace-in-file')
 const cwd = process.cwd()
 
 const dest = `${cwd}/src/models/`
@@ -13,9 +14,19 @@ module.exports = (names, options) => {
     })
     return copyAction
   }).then(copyAction => Promise.all(copyAction).then(() => {
-
-  }).catch(err => console.dir(err))
-    ).catch(err => {
+    const replaceAction = []
+    names.forEach(name => {
+      replaceAction.push(replace({
+        files: `${dest}${name}.js`,
+        from: /model_name/g,
+        to: name
+      }))
+    })
+    return replaceAction
+  }).catch(err => new Error(err))
+    .then(replaceAction => Promise.all(replaceAction).then(() => {
+    })).catch(err => new Error(err)))
+    .catch(err => {
       if (err instanceof Error) throw err
       else throw new Error(err)
     })
