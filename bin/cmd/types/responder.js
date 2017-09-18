@@ -1,12 +1,12 @@
 const copy = require('../../../helper/copy')
 
 module.exports = (names, options) => {
-  const type = 'model'
+  const type = 'responder'
   const regex = /serviceName/g
   copy(names, type, regex).then(() => {
     console.log('\n')
     names.forEach(name => {
-      console.info(`New ${type} has been created as src/model/${name}.js`)
+      console.info(`New ${type} has been created as src/app/${name}.${type}.js`)
     })
     console.log('\n')
   }).catch(err => {
