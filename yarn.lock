@@ -375,6 +375,10 @@ doctrine@^2.0.0:
     esutils "^2.0.2"
     isarray "^1.0.0"
 
+dotenv@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-4.0.0.tgz#864ef1379aced55ce6f95debecdce179f7a0cd1d"
+
 error-ex@^1.2.0:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/error-ex/-/error-ex-1.3.1.tgz#f855a86ce61adc4e8621c3cda21e7a7612c3a8dc"
@@ -688,6 +692,16 @@ foreach@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/foreach/-/foreach-2.0.5.tgz#0bee005018aeb260d0a3af3ae658dd0136ec1b99"
 
+fs-extra@0.30.0:
+  version "0.30.0"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-0.30.0.tgz#f233ffcc08d4da7d432daa449776989db1df93f0"
+  dependencies:
+    graceful-fs "^4.1.2"
+    jsonfile "^2.1.0"
+    klaw "^1.0.0"
+    path-is-absolute "^1.0.0"
+    rimraf "^2.2.8"
+
 fs-extra@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-4.0.2.tgz#f91704c53d1b461f893452b0c307d9997647ab6b"
@@ -763,7 +777,7 @@ globby@^5.0.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
 
-graceful-fs@^4.1.2, graceful-fs@^4.1.6:
+graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
 
@@ -988,6 +1002,12 @@ json3@3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/json3/-/json3-3.3.2.tgz#3c0434743df93e2f5c42aee7b19bcb483575f4e1"
 
+jsonfile@^2.1.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/jsonfile/-/jsonfile-2.4.0.tgz#3736a2b428b87bbda0cc83b53fa3d633a35c2ae8"
+  optionalDependencies:
+    graceful-fs "^4.1.6"
+
 jsonfile@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/jsonfile/-/jsonfile-4.0.0.tgz#8771aae0799b64076b76640fca058f9c10e33ecb"
@@ -1012,6 +1032,12 @@ jsonpointer@^4.0.0:
 jsx-ast-utils@^1.3.4:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/jsx-ast-utils/-/jsx-ast-utils-1.4.1.tgz#3867213e8dd79bf1e8f2300c0cfc1efb182c0df1"
+
+klaw@^1.0.0:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/klaw/-/klaw-1.3.1.tgz#4088433b46b3b1ba259d78785d8e96f73ba02439"
+  optionalDependencies:
+    graceful-fs "^4.1.9"
 
 lcid@^1.0.0:
   version "1.0.0"
@@ -1475,6 +1501,10 @@ replace-in-file@^3.0.0-beta.2:
     glob "^7.1.2"
     yargs "^8.0.2"
 
+require-all@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/require-all/-/require-all-2.2.0.tgz#b4420c233ac0282d0ff49b277fb880a8b5de0894"
+
 require-directory@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/require-directory/-/require-directory-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"
@@ -1540,6 +1570,17 @@ rx-lite@^3.1.2:
 safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.1.tgz#893312af69b2123def71f57889001671eeb2c853"
+
+sails-disk@^0.10.10:
+  version "0.10.10"
+  resolved "https://registry.yarnpkg.com/sails-disk/-/sails-disk-0.10.10.tgz#6ac5dea00950cf6568a53fe13fd0b8d3ad3260ff"
+  dependencies:
+    async "~0.2.9"
+    fs-extra "0.30.0"
+    lodash "3.10.1"
+    waterline-criteria "~1.0.1"
+    waterline-cursor "~0.0.6"
+    waterline-errors "~0.10.1"
 
 semver-regex@1.0.0:
   version "1.0.0"
@@ -1829,6 +1870,23 @@ waterline-criteria@~0.11.2:
   resolved "https://registry.yarnpkg.com/waterline-criteria/-/waterline-criteria-0.11.2.tgz#6a9115563778ef9df54c46c5d1687cba79a84ea1"
   dependencies:
     lodash "~2.4.1"
+
+waterline-criteria@~1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/waterline-criteria/-/waterline-criteria-1.0.1.tgz#8877057ec7d6472100017a3a57fcc94b62a1fda9"
+  dependencies:
+    lodash "3.10.1"
+
+waterline-cursor@~0.0.6:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/waterline-cursor/-/waterline-cursor-0.0.7.tgz#ccd9cfed661d94af6027495942b5fa27ad65feb3"
+  dependencies:
+    async "1.5.2"
+    lodash "3.10.1"
+
+waterline-errors@~0.10.1:
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/waterline-errors/-/waterline-errors-0.10.1.tgz#ee63632aadde993271b7514b7ca98d9fd5b86a2e"
 
 waterline-schema@~0.2.1:
   version "0.2.2"
