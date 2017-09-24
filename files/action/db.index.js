@@ -3,7 +3,7 @@ const Waterline = require('waterline')
 const adapters = require('./config/adapters')
 const connections = require('./config/connections')
 const modelConfig = require('./config/model')
-const modelObject = require('require-all')('./src/models')
+const modelObject = require('require-all')(require('path').resolve(__dirname) + '/src/models')
 
 const orm = new Waterline()
 const models = Object.keys(modelObject)
