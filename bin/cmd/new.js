@@ -6,11 +6,11 @@ const postfixName = '-service'
 const makeProject = (name) => {
   const newDir = []
   newDir.push(fs.ensureDir(`${cwd}/${name}/`))
-  newDir.push(fs.ensureDir(`${cwd}/${name}/src/models/`))
-  newDir.push(fs.ensureDir(`${cwd}/${name}/src/app/requester/`))
-  newDir.push(fs.ensureDir(`${cwd}/${name}/src/app/responder/`))
-  newDir.push(fs.ensureDir(`${cwd}/${name}/src/app/publisher/`))
-  newDir.push(fs.ensureDir(`${cwd}/${name}/src/app/subscriber/`))
+  newDir.push(fs.ensureFile(`${cwd}/${name}/src/models/.gitkeep`))
+  newDir.push(fs.ensureDir(`${cwd}/${name}/src/app/requester/.gitkeep`))
+  newDir.push(fs.ensureDir(`${cwd}/${name}/src/app/responder/.gitkeep`))
+  newDir.push(fs.ensureDir(`${cwd}/${name}/src/app/publisher/.gitkeep`))
+  newDir.push(fs.ensureDir(`${cwd}/${name}/src/app/subscriber/.gitkeep`))
 
   return Promise.all(newDir)
 }
