@@ -2,7 +2,7 @@ const copy = require('../../../helper/copy')
 
 module.exports = (names, options) => {
   const type = 'model'
-  const regex = /serviceName/g
+  const regex = /model_name/g
   copy(names, type, regex).then(() => {
     console.log('\n')
     names.forEach(name => {
