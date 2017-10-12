@@ -1,6 +1,6 @@
 {
   "name": "microservice-lite",
-  "version": "0.1.0",
+  "version": "0.0.0-development",
   "description": "A lite framework for getting started with microservices",
   "main": "index.js",
   "bin": {
@@ -9,11 +9,12 @@
   "scripts": {
     "test": "standard && mocha \"src/**/*.spec.js\" \"index.spec.js\" ",
     "commitmsg": "validate-commit-msg",
-    "prepush": "standard --fix"
+    "prepush": "standard --fix",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Robophil/microservice-lite.git"
+    "url": "https://github.com/Robophil/microservice-lite.git"
   },
   "keywords": [
     "microservices",
@@ -40,7 +41,8 @@
     "husky": "^0.14.3",
     "mocha": "^3.5.2",
     "standard": "^10.0.3",
-    "validate-commit-msg": "^2.14.0"
+    "validate-commit-msg": "^2.14.0",
+    "semantic-release": "^8.0.3"
   },
   "dependencies": {
     "blob": "^0.0.4",
