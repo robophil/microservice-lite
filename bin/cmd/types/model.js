@@ -6,7 +6,7 @@ module.exports = (names, options) => {
   copy(names, type, regex).then(() => {
     console.log('\n')
     names.forEach(name => {
-      console.info(`New ${type} has been created as src/models/${name}.js`)
+      console.info(`\tNew ${type} has been created as src/models/${name}.js`)
     })
     console.log('\n')
   }).catch(err => {
