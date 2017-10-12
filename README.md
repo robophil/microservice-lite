@@ -1,6 +1,7 @@
 # microservice-lite
 
 [![Build Status](https://travis-ci.org/Robophil/microservice-lite.svg?branch=feat%2Fsetup-project-dev-dependencies)](https://travis-ci.org/Robophil/microservice-lite)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 Microservice-lite is a very small package for getting started with **microservices** on [node](node.js).
 It covers everything a simple microservice should have.
