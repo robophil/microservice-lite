@@ -19,6 +19,7 @@
   "author": "Balogun Oghenerobo Philip <oghenerobo@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "cote": "^0.15.1",
     "require-all": "^2.2.0",
     "fs-extra": "^4.0.2",
     "sails-disk": "^0.10.10",
