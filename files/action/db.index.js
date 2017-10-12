@@ -14,6 +14,7 @@ orm.initialize({adapters, connections}, (err, ormObject) => {
   if (err) throw new Error(err)
   const models = Object.keys(ormObject.collections)
   models.forEach(model => {
+    model = model.charAt(0).toUpperCase() + model.slice(1)
     global[model] = orm.collections[model]
   })
   console.log(`Models loaded successfully !!`)
