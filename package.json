@@ -1,6 +1,6 @@
 {
   "name": "microservice-lite",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "description": "A lite framework for getting started with microservices",
   "main": "index.js",
   "bin": {
