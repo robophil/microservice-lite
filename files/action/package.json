@@ -1,0 +1,31 @@
+{
+  "name": "microservice-lite",
+  "version": "0.1.0",
+  "description": "A tiny microservice built using mslite",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha \"src/**/*.spec.js\" \"index.spec.js\" ",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "microservices",
+    "cote.js",
+    "cote",
+    "javascript",
+    "node",
+    "microservicelite",
+    "mslite"
+  ],
+  "author": "Balogun Oghenerobo Philip <oghenerobo@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^3.5.2"
+  },
+  "dependencies": {
+    "cote": "^0.15.1",
+    "require-all": "^2.2.0",
+    "fs-extra": "^4.0.2",
+    "sails-disk": "^0.10.10",
+    "waterline": "^0.11.11"
+  }
+}
