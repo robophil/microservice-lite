@@ -30,6 +30,9 @@
       "bin/mslite.js"
     ]
   },
+  "release": {
+    "branch": "develop"
+  },
   "preferGlobal": true,
   "author": "Balogun Oghenerobo Philip <oghenerobo@gmail.com>",
   "license": "MIT",
