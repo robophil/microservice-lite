@@ -17,5 +17,5 @@ orm.initialize({adapters, connections}, (err, ormObject) => {
     model = model.charAt(0).toUpperCase() + model.slice(1)
     global[model] = orm.collections[model]
   })
-  console.log(`Models loaded successfully !!`)
+  console.log(`\tModels loaded successfully !!`)
 })
