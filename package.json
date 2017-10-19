@@ -45,7 +45,7 @@
     "mocha": "^3.5.2",
     "standard": "^10.0.3",
     "validate-commit-msg": "^2.14.0",
-    "semantic-release": "^8.0.3"
+    "semantic-release": "^8.2.0"
   },
   "dependencies": {
     "blob": "^0.0.4",
