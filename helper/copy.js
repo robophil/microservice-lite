@@ -5,7 +5,7 @@ const cwd = process.cwd()
 
 module.exports = (names, type, regex) => {
   const src = path.resolve(__dirname, '..', `files/${type}.js`)
-  const dest = (type === 'model') ? `${cwd}/src/models/` : `${cwd}/src/app/`
+  const dest = (type === 'model') ? `${cwd}/src/models/` : `${cwd}/src/app/${type}/`
 
   return fs.ensureDir(dest).then(() => {
     const copyAction = []
