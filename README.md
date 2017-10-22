@@ -16,59 +16,133 @@ It covers everything a simple microservice should have.
 This works, thanks to the effort of [@dashersw](https://github.com/dashersw/) and his wonderful project [cote.js](https://github.com/dashersw/cote) 
 and [@balderdashy](https://github.com/balderdashy) for writing [waterline](https://github.com/balderdashy/waterline)
 
-## install
+## Install
 
 ```bash
-# for pre-release do npm i -g microservice-lite@next
 npm i -g microservice-lite
-```
-or
-```bash
-# for pre-release do yarn global add microservice-lite@next
+# or
 yarn global add microservice-lite
 ```
+## Get started
 
-## cli commands
-
-#### create a project
+Create a fresh project with **mslite** by running
 ```bash
-# creates new project
-mslite new sample
+mslite new $projectname
 ```
 
-#### responder
-```bash
-# New responder has been created as src/app/foo.responder.js
-mslite g responder foo [...othernames]
-```
-#### requester
-```bash
-# New requester has been created as src/app/foo.requester.js
-mslite g requester foo [...othernames]
-```
-Requesters are global and can be accessed from any location. The above can be accessed as `FooRequester` globally with the app
-#### subscriber
-```bash
-# New subscriber has been created as src/app/foo.subscriber.js
-mslite g subscriber foo [...othernames]
-```
-#### publisher
-```bash
-# New publisher has been created as src/app/foo.publisher.js
-mslite g publisher foo [...othernames]
-```
-Publishers are global and can be accessed from any location. The above can be accessed as `FooPublisher` globally with the app
-#### model
-```bash
-# New model has been created as src/models/foo.js
-mslite g model foo [...othernames]
-```
-Models are global and can be accessed from any location. The above can be accessed as `Foo` globally with the app
+## Features
 
-## database and adapters
-Each microservice should have it's own database and **mslite** helps you with that. You could have a different database for each service. Eg mysql, mongodb, pouchdb etc.
+1. [Requester & Responder](#Requester-&-Responder)
+1. [Tracking changes with a publish-subscribe mechanism](#Responder)
+1. [Model](#Model)
+1. [Configure Database and Adapter](#Model)
+   1. [Setup Adapter](#Model)
+1. [Test](#Model)
+1. [Examples](#Model)
+1. [Development](#Model)
 
-By default, each project created with **mslite** comes with a disk based databased called `sails-disk`. There are other adapters you can use to have a different database like
+#### Requester & Responder
+> The most common scenario for applications is the **request-response** cycle. Typically, one microservice would request a task to be carried out or make a query to another microservice, and get a response in return.
+Read more [here](http://cote.js.org/#implementing-a-request-response-mechanism)
+
+Generate one or more `Requester(s)` by running the command.
+```bash
+# $name = user
+mslite g requester $name [...$othernames]
+# New requester has been created at src/app/requester/user.requester.js
+```
+```javascript
+const cote = require('cote')
+
+/**
+ * Creates a new Requester
+ */
+const UserRequester = new cote.Requester({
+  name: 'mslite:requester:User '
+})
+
+module.exports = UserRequester
+
+```
+
+**NB :** Requesters are global and can be accessed from any location within the app. The above can be accessed as `UserRequester`
+
+Generate one or more `Responder(s)` by running the command.
+```bash
+# $name = calculate
+mslite g responder $name [...$othernames]
+# New responder has been created at src/app/responder/calculate.responder.js
+```
+```javascript
+const cote = require('cote')
+
+/**
+ * Creates a new Responder
+ */
+const CalculateResponder = new cote.Responder({
+  name: 'mslite:responder:Calculate '
+})
+
+module.exports = CalculateResponder
+
+```
+
+####  Tracking changes with a publish-subscribe mechanism
+> Another common need in most systems is tracking changes and events as they occur. This gives room for other services to perform some other chores depending on what they subscribed to. Read more [here](http://cote.js.org/#tracking-changes-in-the-system-with-a-publish-subscribe-mechanism)
+
+Generate one or more `Subscriber(s)` by running the command.
+```bash
+# $name = rss
+mslite g subscriber $name [...$othernames]
+# New subscriber has been created at src/app/subscriber/rss.subscriber.js
+```
+```javascript
+const cote = require('cote')
+
+/**
+ * Creates a new Subscriber
+ */
+const RssSubscriber = new cote.Subscriber({
+  name: 'mslite:subscriber:Rss '
+})
+
+module.exports = RssSubscriber
+
+```
+Generate one or more `Publisher(s)` by running the command.
+```bash
+# $name = news
+mslite g publisher $name [...$othernames]
+# New subscriber has been created at src/app/publisher/news.publisher.js
+```
+```javascript
+const cote = require('cote')
+
+/**
+ * Creates a new Publisher
+ */
+const NewsPublisher = new cote.Subscriber({
+  name: 'mslite:publisher:News '
+})
+
+module.exports = NewsPublisher
+
+```
+**NB :** Publishers are global and can be accessed from any location within the app. The above can be accessed as `NewsPublisher`
+
+#### Model
+> As stated above, every service should have it's own database. That's where models come. You could create a model and set the schema if need as you would in **mongoose** or sails' **waterline**. Waterline is the `orm` used in `mslite`, so you could use any database of your choice and have nothing to worry about. 
+
+Generate one or more `Model(s)` by running the command.
+```bash
+# $name = order
+mslite g model $name [...$othernames]
+# New model has been created as src/models/order.js
+```
+**NB :** Models are global and can be accessed from any location. The above can be accessed as `Order` globally with the app
+
+## Configuring database and adapters
+By default, each project created with **mslite** comes with a disk based database called `sails-disk` which uses your filesystem. There are other adapters you can use to have a different database like
 
 - `sails-mysql`
 - `sails-postgresql`
@@ -81,7 +155,7 @@ see [here](http://sailsjs.com/documentation/concepts/extending-sails/adapters/av
 
 To add a different adapter for your project, simply install the appropriate adapter and make sure you have the database on your current machine as the adapter would try to make connection.
 
-#### configure adapters
+#### Setup adapters
 1. Install required adapter eg.
   ```bash
   npm i --save sails-mongo
@@ -94,13 +168,14 @@ To add a different adapter for your project, simply install the appropriate adap
   }
   ```
 You can have any amount of adapters saved here for later use
+
 3. Open `config/connections.js` create a connection object. Same as above, pass connection object to a name of your pleasing and specify the adapter from any defined in `step 1`
 ```js
   module.exports = {
     'diskDb': {
       'adapter': 'sailsDisk'
     },
-    myMongodbServer: {
+    'myMongodbServer': {
       adapter: 'sailsMongo',//adapter's name, as defined above
       host: 'localhost',
       port: 27017,
@@ -113,35 +188,28 @@ You can have any amount of adapters saved here for later use
 4. Open `cofig/models` Tell your models to use the connection you want.
 ```js
 module.exports = {
-  'connection': 'myMongodbServer', //change from diskDb
-  'migrate': 'alter',
-  'schema': true
+  'connection': 'myMongodbServer', // change from diskDb
+  'migrate': 'alter', // migration option
+  'schema': true // only persist data defined in your schema
 }
 ```
-## test
+
+## Test
 NYD
 
-## examples
-NYD
+## Example
+> **We'll be building a fictitious ecommerce application as stated [here](http://microservices.io/patterns/microservices.html).**
+> We'll need 3 services for this use case.
+* [Account-service](https://github.com/Robophil/Account-service)
+* [Inventory-service](https://github.com/Robophil/Inventory-service)
+* [Shipping-service](https://github.com/Robophil/Shipping-service)
 
-## goal
+We'll also need a frontend/gateway for this application. And we'll call that [Fictitious-ecommerce-store](https://github.com/Robophil/Fictitious-ecommerce-store).
 
-The goal of the project is to make getting started with a microservice easy and painless, giving you basic features. The following features are on the roadmap
-
-- CLI for generating necessary files. eg
-```bash
-# generates a db model
-mslite g model name [names...]
-```
-- Easy connection to any database with the same api
-- .... got a feature in mind ? create an issue [here](https://github.com/Robophil/microservice-lite/issues)
-
-## development
+## Development
 
 This project uses the following to keep things a bit sane around the house
 
 1. [standardjs](https://standardjs.com/)
 2. [validate-commit-msg](https://github.com/conventional-changelog/validate-commit-msg) see http://conventionalcommits.org/
 3. [Github flow](https://guides.github.com/introduction/flow/)
-
-and is completly test driven [TDD](https://en.wikipedia.org/wiki/Test-driven_development)
